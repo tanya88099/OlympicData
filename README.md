@@ -1,6 +1,19 @@
-# Tokyo Olympics Data Analysis Project
+# End to End Tokyo Olympic Data Engineer Project Using Microsoft Azure
 ![image](https://github.com/user-attachments/assets/dfe28e59-a3f8-4076-9e41-5921dc749c13)
 
+In this project, we will perform data analysis on the Olympic dataset and uncover insights such as:
+
+1. Top 20 countries in terms of Number of participants
+2. Top 20 countries in terms of Number of coaches
+3. Top countries in terms of Number of medals
+4. Total Participants in each Discipline
+5. Density of Countries in 2021
+6. Country-wise Gold medals, Silver medals, Bronze medals
+7. Rank VS Total Medal
+
+Download the dataset from my GitHub: [Tokyo Olympics Dataset](https://github.com/tanya88099/OlympicData/tree/main/Dataset)
+
+## Tokyo Olympics Dataset Overview
 
 Welcome to the Tokyo Olympics Data Analysis project! This project demonstrates the use of various Azure tools and technologies for conducting comprehensive data analysis.
 
