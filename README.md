@@ -15,7 +15,28 @@ Download the dataset from my GitHub: [Tokyo Olympics Dataset](https://github.com
 
 ## Tokyo Olympics Dataset Overview
 
-Welcome to the Tokyo Olympics Data Analysis project! This project demonstrates the use of various Azure tools and technologies for conducting comprehensive data analysis.
+**Dataset Scope:** This dataset provides comprehensive information about the athletes, coaches, teams, and their performance at the 2021 Tokyo Olympics (held in 2020). It encompasses details about over 11,000 athletes participating in 47 disciplines across 743 teams.
+
+**Dataset Components:**
+The dataset is comprised of five primary files:
+
+- **Athletes.csv:** Contains individual athlete information, including their name, the country they represent (NOC), and the discipline they compete in.
+  ![image](https://github.com/user-attachments/assets/0116f455-c04c-440a-a8bf-36169b9fee30)
+
+- **Coaches.csv:** Lists coaches with their respective countries, disciplines, and associated events.
+  ![image](https://github.com/user-attachments/assets/8644a999-1d31-472c-b4b3-ebfdefdd3367)
+
+- **EntriesGender.csv:** Details the gender distribution of participants across disciplines and countries.
+  ![image](https://github.com/user-attachments/assets/f398f4b0-47e2-43b6-9e80-78613a757f4a)
+
+- **Medals.csv:** Outlines the medal tally for each country as of July 29, 2021.
+  ![image](https://github.com/user-attachments/assets/295811d1-b0b2-44c7-8c1e-be9a74919b73)
+
+- **Teams.csv:** Provides information about participating teams, including their country, event, and discipline.
+   ![image](https://github.com/user-attachments/assets/bc5ba51a-ef13-47b1-8dad-9d97800c09b2)
+
+
+## Let's Begin
 
 ## Table of Contents
 1. [Introduction](#introduction)
