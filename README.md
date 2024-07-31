@@ -322,7 +322,7 @@ To make a connection so that we can connect to the data lake storage gen 2 to da
     -**Mounts the container:** Uses dbutils.fs.mount to mount the specified ABFS container to a specified mount point within the Databricks workspace.
     ```python
     dbutils.fs.mount(
-    source = "abfss://tokyo-olympic-data@tokyoolympicdata.dfs.core.windows.net", # contrainer@storageacc
+    source = "abfss://tokyodecontainer@tokyodesatanya.dfs.core.windows.net", # contrainer@storageacc
     mount_point = "/mnt/tokyoolymic",
     extra_configs = configs)
     ```
