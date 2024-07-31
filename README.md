@@ -355,7 +355,7 @@ To make a connection so that we can connect to the data lake storage gen 2 to da
    ```python
     athletes.show()
    ```
-   ![image](https://github.com/user-attachments/assets/42f8245a-a845-46e6-bbdc-f37b984add5b)
+     ![image](https://github.com/user-attachments/assets/42f8245a-a845-46e6-bbdc-f37b984add5b)
      ```python
     athletes.printSchema()
    ```
@@ -363,7 +363,81 @@ To make a connection so that we can connect to the data lake storage gen 2 to da
      ```python
     coaches.show()
    ```
-    ![image](https://github.com/user-attachments/assets/647d4793-af05-4790-beb9-52e5d684c054)
+    ![image](https://github.com/user-attachments/assets/4c5bd4f3-ebae-4e2b-9d4d-055dba0adef9)
+
+   ```python
+    coaches.printSchema()
+   ```
+    ![image](https://github.com/user-attachments/assets/103e9300-00e4-4e05-9319-50ca8a056945)
+
+   ```python
+    entriesgender.show()
+   ```
+   ![image](https://github.com/user-attachments/assets/36539825-9743-4afe-8440-1bcad338d6f1)
+
+   ```python
+    entriesgender.printSchema()A
+   ```
+   ![image](https://github.com/user-attachments/assets/fde0dec1-dd27-4099-944f-6e1db9744326)
+
+   ```python
+    medals.show()
+   ```
+  ![image](https://github.com/user-attachments/assets/ac5dda1b-b10c-4257-804f-7065d906c9a0)
+
+   ```python
+    medals.printSchema()
+   ```
+   ![image](https://github.com/user-attachments/assets/bde1641f-dbce-4d3b-923a-f8ec0073413a)
+
+   ```python
+    teams.show()
+   ```
+   ![image](https://github.com/user-attachments/assets/447d4703-2925-4a72-99e5-223d23402bbf)
+
+   ```python
+    teams.printSchema()
+   ```
+   ![image](https://github.com/user-attachments/assets/91bef414-ae09-45c6-b325-e659c00ad739)
+  
+##Data Analysis:
+  ```python
+    #Top 20 countries in terms of Number of participants
+    participant_counts = athletes.groupBy("NOC").count().orderBy("count", ascending=False)
+  	# Select top 20 countries
+  	top_20_countries = participant_counts.limit(20)
+  	display(top_20_countries)
+
+   ```
+   ![image](https://github.com/user-attachments/assets/2847ff1f-d19a-4bab-aacf-7e10d93e172d)
+   ```python
+    Top 20 countries in terms of number of coaches
+    no_of_coaches = coaches.groupBy("NOC").count().orderBy("count",ascending = False)
+    # Select top 20 countries
+    top_20_countries_coaches = participant_counts.limit(20)
+    display(top_20_countries_coaches) 
+   ```
+   ![image](https://github.com/user-attachments/assets/2847ff1f-d19a-4bab-aacf-7e10d93e172d)
+  ```python
+    # Find the top countries with the highest number of gold medals
+    top_gold_medal_countries = medals.orderBy("Gold", ascending=False).select("Team/NOC","Gold").show()
+   ```
+  ![image](https://github.com/user-attachments/assets/90472190-fdb2-450b-add1-261645558850)
+  ```python
+    # Calculate the average number of entries by gender for each discipline
+    average_entries_by_gender = entriesgender.withColumn('Avg_Female', entriesgender['Female'] /       entriesgender['Total']).withColumn('Avg_Male', entriesgender['Male'] / entriesgender['Total'])
+    average_entries_by_gender.show()
+   ```
+  ![image](https://github.com/user-attachments/assets/bea665b3-b0c9-43be-aa5d-4943ab582485)
+
+**saving transformed data**
+```python
+   athletes.repartition(1).write.mode("overwrite").option("header",'true').csv("/mnt/tokyoolymic/transformed-data/athletes")
+  coaches.repartition(1).write.mode("overwrite").option("header","true").csv("/mnt/tokyoolymic/transformed-data/coaches")
+  entriesgender.repartition(1).write.mode("overwrite").option("header","true").csv("/mnt/tokyoolymic/transformed-data/entriesgender")
+  medals.repartition(1).write.mode("overwrite").option("header","true").csv("/mnt/tokyoolymic/transformed-data/medals")
+  teams.repartition(1).write.mode("overwrite").option("header","true").csv("/mnt/tokyoolymic/transformed-data/teams")
+   ```
 
 ### Data Analysis with Azure Synapse Analytics
 
